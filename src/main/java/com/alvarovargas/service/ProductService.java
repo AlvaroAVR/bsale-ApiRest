@@ -5,5 +5,8 @@ import java.util.List;
 import com.alvarovargas.model.Product;
 
 public interface ProductService {
-	List<Product> searchProducts(String query);
+	
+	public List<Product> listarProductos();
+    
+    public List<Product> buscarProductos(String query);
 }

@@ -8,9 +8,12 @@ import org.springframework.data.jpa.repository.Query;
 import com.alvarovargas.model.Product;
 
 public interface ProductRepository extends JpaRepository<Product, Integer> {
-	
-	@Query("SELECT p FROM Product p WHERE " +
-            "p.name LIKE CONCAT('%',:query, '%')"+
-            "Or p.id LIKE CONCAT('%',:query, '%')")
-    List<Product> searchProducts(String query);
+
+	@Query("SELECT p FROM Product p")
+    List<Product> listarProductos();
+    
+    @Query("SELECT p FROM Product p WHERE " +
+            "p.name LIKE CONCAT('%',:query, '%')")
+    List<Product> buscarProductos(String query);
+    
 }
